@@ -39,7 +39,7 @@ public class PersonajeAdapter extends RecyclerView.Adapter<PersonajeAdapter.Pers
         holder.tvFamily.setText(personajes.get(position).getFamily());
         holder.tvFirstName.setText(personajes.get(position).getFirstName());
         holder.tvLastName.setText(personajes.get(position).getLastName());
-        holder.tvTittle.setText(personajes.get(position).getTittle());
+        holder.tvTitle.setText(personajes.get(position).getTitle());
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -59,7 +59,7 @@ public class PersonajeAdapter extends RecyclerView.Adapter<PersonajeAdapter.Pers
         private TextView tvFamily;
         private TextView tvFirstName;
         private TextView tvLastName;
-        private TextView tvTittle;
+        private TextView tvTitle;
 
         public PersonajeViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -68,7 +68,7 @@ public class PersonajeAdapter extends RecyclerView.Adapter<PersonajeAdapter.Pers
             this.tvFamily = itemView.findViewById(R.id.tvFamily);
             this.tvFirstName = itemView.findViewById(R.id.tvFirstName);
             this.tvLastName = itemView.findViewById(R.id.tvLastName);
-            this.tvTittle = itemView.findViewById(R.id.tvTittle);
+            this.tvTitle = itemView.findViewById(R.id.tvTitle);
         }
     }
 
