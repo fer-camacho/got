@@ -35,8 +35,10 @@ public class LoginActivity extends AppCompatActivity {
                 String usuario = etUsuario.getText().toString();
                 String password = etPassword.getText().toString();
 
-                if (usuario.isEmpty() || password.isEmpty()) {
-                    Toast.makeText(LoginActivity.this, "COMPLETAR DATOS", Toast.LENGTH_SHORT).show();
+                if (usuario.isEmpty()) {
+                    Toast.makeText(LoginActivity.this, "Complete username", Toast.LENGTH_SHORT).show();
+                } else if (password.isEmpty()) {
+                    Toast.makeText(LoginActivity.this, "Complete password", Toast.LENGTH_SHORT).show();
                 } else {
                     Intent intent = new Intent(LoginActivity.this, SeleccionElementosActivity.class);
                     startActivity(intent);
@@ -48,7 +50,9 @@ public class LoginActivity extends AppCompatActivity {
         btnCrearUsuario.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(LoginActivity.this, "CREAR USUARIO", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(LoginActivity.this, CrearCuentaActivity.class);
+                startActivity(intent);
+                finish();
             }
         });
     }

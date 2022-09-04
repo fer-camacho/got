@@ -16,6 +16,9 @@
         android:theme="@style/Theme.Got"
         tools:targetApi="31">
         <activity
+            android:name=".CrearCuentaActivity"
+            android:exported="false" />
+        <activity
             android:name=".SeleccionElementosActivity"
             android:exported="false" />
         <activity

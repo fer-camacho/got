@@ -4,22 +4,24 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LoginActivity"
+    tools:context=".CrearCuentaActivity"
     android:orientation="vertical">
 
-
-    <ImageView
+    <TextView
         android:layout_width="match_parent"
-        android:layout_height="150dp"
-        android:layout_marginTop="50dp"
+        android:layout_height="wrap_content"
         android:gravity="center_horizontal"
-        app:srcCompat="@drawable/login" />
+        android:layout_marginTop="50dp"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:text="Sign Up"
+        />
 
     <EditText
         android:id="@+id/etUsuario"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Username"
+        android:hint="Enter username"
         android:inputType="text"
         android:layout_marginTop="50dp"
         android:layout_marginStart="50dp"
@@ -30,50 +32,42 @@
         android:id="@+id/etPassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Password"
+        android:hint="Enter password"
         android:inputType="textPassword"
         android:layout_marginTop="20dp"
         android:layout_marginStart="50dp"
         android:layout_marginEnd="50dp"
         />
 
-    <Switch
-        android:id="@+id/swRecordarUsuario"
+    <EditText
+        android:id="@+id/etPassword2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Remember me"
-        android:layout_marginTop="30dp"
+        android:hint="Re enter password"
+        android:inputType="textPassword"
+        android:layout_marginTop="20dp"
         android:layout_marginStart="50dp"
         android:layout_marginEnd="50dp"
         />
 
-    <LinearLayout
+    <CheckBox
+        android:id="@+id/chAceptarTerminos"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:layout_marginStart="30dp"
-        android:layout_marginEnd="30dp"
-        android:weightSum="1">
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginEnd="50dp"
+        android:text="I accept terms of the agreement"
+        android:gravity="center_horizontal"
+        />
 
-        <Button
-            android:id="@+id/btnIniciarSesion"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginStart="10dp"
-            android:layout_marginEnd="10dp"
-            android:layout_weight="0.5"
-            android:background="@drawable/button_rounded"
-            android:text="Sign In " />
-
-        <Button
-            android:id="@+id/btnCrearUsuario"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginStart="10dp"
-            android:layout_marginEnd="10dp"
-            android:layout_weight="0.5"
-            android:background="@drawable/button_rounded"
-            android:text="Sign Up" />
-    </LinearLayout>
+    <Button
+        android:id="@+id/btnIniciarSesion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_marginEnd="50dp"
+        android:background="@drawable/button_rounded"
+        android:text="Sign In " />
 
 </LinearLayout>
