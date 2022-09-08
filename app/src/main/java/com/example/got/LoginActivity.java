@@ -3,6 +3,7 @@ package com.example.got;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -28,6 +29,14 @@ public class LoginActivity extends AppCompatActivity {
         btnCrearUsuario = findViewById(R.id.btnCrearUsuario);
         btnIniciarSesion = findViewById(R.id.btnIniciarSesion);
 
+        SharedPreferences prefs = getApplicationContext().getSharedPreferences(Constantes.SP_CREDENCIALES, MODE_PRIVATE);
+        String usuarioGuardado = prefs.getString(Constantes.USUARIO, null);
+        String passGuardada = prefs.getString(Constantes.PASSWORD, null);
+
+        if (usuarioGuardado != null && passGuardada!= null) {
+            iniciarSeleccionElementosActivity(usuarioGuardado);
+        }
+
         btnIniciarSesion.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -40,9 +49,7 @@ public class LoginActivity extends AppCompatActivity {
                 } else if (password.isEmpty()) {
                     Toast.makeText(LoginActivity.this, "Complete password", Toast.LENGTH_SHORT).show();
                 } else {
-                    Intent intent = new Intent(LoginActivity.this, SeleccionElementosActivity.class);
-                    startActivity(intent);
-                    finish();
+                    login(usuario, password);
                 }
             }
         });
@@ -55,5 +62,23 @@ public class LoginActivity extends AppCompatActivity {
                 finish();
             }
         });
+    }
+
+    private void login(String usuario, String password) {
+        if(swRecordarUsuario.isChecked()) {
+            SharedPreferences prefs = getApplicationContext().getSharedPreferences(Constantes.SP_CREDENCIALES, MODE_PRIVATE);
+            SharedPreferences.Editor editor = prefs.edit();
+            editor.putString(Constantes.USUARIO, usuario);
+            editor.putString(Constantes.PASSWORD, password);
+            editor.apply();
+        }
+        iniciarSeleccionElementosActivity(usuario);
+    }
+
+    private void iniciarSeleccionElementosActivity(String usuarioGuardado) {
+        Intent intent = new Intent(LoginActivity.this, SeleccionElementosActivity.class);
+        intent.putExtra(Constantes.USUARIO, usuarioGuardado);
+        startActivity(intent);
+        finish();
     }
 }
