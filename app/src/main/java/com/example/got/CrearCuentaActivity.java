@@ -51,9 +51,23 @@ public class CrearCuentaActivity extends AppCompatActivity {
                     Toast.makeText(CrearCuentaActivity.this, "You must accept the terms and conditions", Toast.LENGTH_SHORT).show();
                 }
                 else {
-                    Intent intent = new Intent(CrearCuentaActivity.this, SeleccionElementosActivity.class);
-                    startActivity(intent);
-                    finish();
+                    try {
+                        if (UsuarioManager.getInstancia(CrearCuentaActivity.this).existeUsuario(usuario) > 0) {
+                            etUsuario.setText("");
+                            Toast.makeText(CrearCuentaActivity.this, "Username already exists", Toast.LENGTH_SHORT).show();
+                        } else{
+                            Usuario nuevoUsuario = new Usuario();
+                            nuevoUsuario.setUsuario(usuario);
+                            nuevoUsuario.setPassword(password);
+                            UsuarioManager.getInstancia(CrearCuentaActivity.this).agregarUsuario(nuevoUsuario);
+                            Toast.makeText(CrearCuentaActivity.this, "Signup completed succesfully", Toast.LENGTH_SHORT).show();
+                            Intent intent = new Intent(CrearCuentaActivity.this, SeleccionElementosActivity.class);
+                            startActivity(intent);
+                            finish();
+                        }
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
                 }
 
             }

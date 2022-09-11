@@ -12,6 +12,8 @@ import android.widget.EditText;
 import android.widget.Switch;
 import android.widget.Toast;
 
+import java.util.List;
+
 public class LoginActivity extends AppCompatActivity {
 
     EditText etUsuario, etPassword;
@@ -49,7 +51,11 @@ public class LoginActivity extends AppCompatActivity {
                 } else if (password.isEmpty()) {
                     Toast.makeText(LoginActivity.this, "Complete password", Toast.LENGTH_SHORT).show();
                 } else {
-                    login(usuario, password);
+                    try {
+                        login(usuario, password);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
                 }
             }
         });
@@ -64,15 +70,32 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
 
-    private void login(String usuario, String password) {
-        if(swRecordarUsuario.isChecked()) {
-            SharedPreferences prefs = getApplicationContext().getSharedPreferences(Constantes.SP_CREDENCIALES, MODE_PRIVATE);
-            SharedPreferences.Editor editor = prefs.edit();
-            editor.putString(Constantes.USUARIO, usuario);
-            editor.putString(Constantes.PASSWORD, password);
-            editor.apply();
+    private void login(String usuario, String password) throws Exception {
+        try{
+            Usuario user = UsuarioManager.getInstancia(LoginActivity.this).traer(UsuarioManager.getInstancia(LoginActivity.this).getUsuarios(), usuario);
+            if (user == null) {
+                etUsuario.setText("");
+                Toast.makeText(LoginActivity.this, "Username does not exist", Toast.LENGTH_SHORT).show();
+            } else {
+                //Usuario user = UsuarioManager.getInstancia(LoginActivity.this).traer(UsuarioManager.getInstancia(LoginActivity.this).getUsuarios(), usuario);
+                //if ((user != null) && (user.getPassword().equals(password))){
+                if (user.getPassword().equals(password)) {
+                    if(swRecordarUsuario.isChecked()) {
+                        SharedPreferences prefs = getApplicationContext().getSharedPreferences(Constantes.SP_CREDENCIALES, MODE_PRIVATE);
+                        SharedPreferences.Editor editor = prefs.edit();
+                        editor.putString(Constantes.USUARIO, usuario);
+                        editor.putString(Constantes.PASSWORD, password);
+                        editor.apply();
+                    }
+                    iniciarSeleccionElementosActivity(usuario);
+                } else {
+                    etPassword.setText("");
+                    Toast.makeText(LoginActivity.this, "Password is incorrect", Toast.LENGTH_SHORT).show();
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
-        iniciarSeleccionElementosActivity(usuario);
     }
 
     private void iniciarSeleccionElementosActivity(String usuarioGuardado) {
