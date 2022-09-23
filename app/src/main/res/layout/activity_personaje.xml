@@ -7,6 +7,10 @@
     android:orientation="vertical"
     tools:context=".PersonajeActivity">
 
+    <include
+        android:id="@+id/personaje_toolbar"
+        layout="@layout/got_toolbar"/>
+
     <ImageView
         android:id="@+id/imgItem"
         android:layout_width="200dp"

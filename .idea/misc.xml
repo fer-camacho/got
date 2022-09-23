@@ -5,6 +5,7 @@
       <map>
         <entry key="..\:/Users/camac/Desktop/Taller de apps moviles/got/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.196" />
         <entry key="..\:/Users/camac/Desktop/Taller de apps moviles/got/app/src/main/res/drawable/button_rounded.xml" value="0.186" />
+        <entry key="..\:/Users/camac/Desktop/Taller de apps moviles/got/app/src/main/res/drawable/ic_baseline_arrow_back_24.xml" value="0.1695" />
         <entry key="..\:/Users/camac/Desktop/Taller de apps moviles/got/app/src/main/res/drawable/ic_launcher_background.xml" value="0.186" />
         <entry key="..\:/Users/camac/Desktop/Taller de apps moviles/got/app/src/main/res/layout/activity_crear_cuenta.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/camac/Desktop/Taller de apps moviles/got/app/src/main/res/layout/activity_login.xml" value="0.35260416666666666" />
@@ -12,7 +13,14 @@
         <entry key="..\:/Users/camac/Desktop/Taller de apps moviles/got/app/src/main/res/layout/activity_personaje.xml" value="0.182518115942029" />
         <entry key="..\:/Users/camac/Desktop/Taller de apps moviles/got/app/src/main/res/layout/activity_seleccion_elementos.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/camac/Desktop/Taller de apps moviles/got/app/src/main/res/layout/activity_splash_screen.xml" value="0.35260416666666666" />
+        <entry key="..\:/Users/camac/Desktop/Taller de apps moviles/got/app/src/main/res/layout/got_toolbar.xml" value="0.27445652173913043" />
         <entry key="..\:/Users/camac/Desktop/Taller de apps moviles/got/app/src/main/res/layout/item_personaje.xml" value="0.30085470085470084" />
+        <entry key="..\:/Users/camac/Desktop/Taller de apps moviles/got/app/src/main/res/layout/toolbar.xml" value="0.23385416666666667" />
+        <entry key="..\:/Users/camac/Desktop/Taller de apps moviles/got/app/src/main/res/layout/toolbar_principal.xml" value="0.174609375" />
+        <entry key="..\:/Users/camac/Desktop/Taller de apps moviles/got/app/src/main/res/menu/menu_crear.xml" value="0.23385416666666667" />
+        <entry key="..\:/Users/camac/Desktop/Taller de apps moviles/got/app/src/main/res/menu/menu_main.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/camac/Desktop/Taller de apps moviles/got/app/src/main/res/menu/menu_personaje.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/camac/Desktop/Taller de apps moviles/got/app/src/main/res/menu/menu_seleccion.xml" value="0.365625" />
       </map>
     </option>
   </component>

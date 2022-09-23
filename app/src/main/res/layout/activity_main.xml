@@ -7,6 +7,10 @@
     tools:context=".MainActivity"
     android:orientation="vertical">
 
+    <include
+        android:id="@+id/main_toolbar"
+        layout="@layout/got_toolbar"/>
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvPersonajes"
         android:layout_width="match_parent"

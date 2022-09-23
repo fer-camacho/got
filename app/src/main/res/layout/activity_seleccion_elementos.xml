@@ -7,6 +7,10 @@
     tools:context=".SeleccionElementosActivity"
     android:orientation="vertical">
 
+    <include
+        android:id="@+id/seleccion_toolbar"
+        layout="@layout/got_toolbar"/>
+
     <EditText
         android:id="@+id/etCantidad"
         android:layout_width="match_parent"

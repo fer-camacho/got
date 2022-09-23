@@ -7,6 +7,9 @@
     tools:context=".LoginActivity"
     android:orientation="vertical">
 
+    <include
+        android:id="@+id/login_toolbar"
+        layout="@layout/got_toolbar"/>
 
     <ImageView
         android:layout_width="match_parent"

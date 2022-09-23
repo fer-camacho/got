@@ -1,10 +1,14 @@
 package com.example.got;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -12,6 +16,7 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
+    Toolbar main_toolbar;
     RecyclerView rvPersonajes;
     PersonajeAdapter adapter;
 
@@ -19,6 +24,11 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        main_toolbar = findViewById(R.id.main_toolbar);
+        setSupportActionBar(main_toolbar);
+        getSupportActionBar().setTitle("Game of Thrones");
+
         rvPersonajes = findViewById(R.id.rvPersonajes);
         setupAdapter();
     }
@@ -30,10 +40,32 @@ public class MainActivity extends AppCompatActivity {
             public void onItemClick(Personaje personaje) {
                 Intent intent = new Intent(MainActivity.this, PersonajeActivity.class);
                 intent.putExtra("personaje", personaje);
+                intent.putExtra("cantidad", getIntent().getIntExtra("cantidad", 0));
                 startActivity(intent);
             }
         });
         rvPersonajes.setAdapter(adapter);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu){
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    public boolean onOptionsItemSelected(MenuItem item){
+        if (item.getItemId() == R.id.item_volver){
+            Intent intent = new Intent(MainActivity.this, SeleccionElementosActivity.class);
+            startActivity(intent);
+            finish();
+        } else {
+            SharedPreferences prefs = getApplicationContext().getSharedPreferences(Constantes.SP_CREDENCIALES, MODE_PRIVATE);
+            prefs.edit().clear().apply();
+            Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+            startActivity(intent);
+            finish();
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     private List<Personaje> getPersonajes() {

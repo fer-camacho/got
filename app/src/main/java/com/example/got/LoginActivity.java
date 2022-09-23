@@ -1,6 +1,7 @@
 package com.example.got;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -15,7 +16,7 @@ import android.widget.Toast;
 import java.util.List;
 
 public class LoginActivity extends AppCompatActivity {
-
+    Toolbar login_toolbar;
     EditText etUsuario, etPassword;
     Button btnCrearUsuario, btnIniciarSesion;
     Switch swRecordarUsuario;
@@ -24,6 +25,10 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+        login_toolbar = findViewById(R.id.login_toolbar);
+        setSupportActionBar(login_toolbar);
+        getSupportActionBar().setTitle("Game of Thrones");
 
         etUsuario = findViewById(R.id.etUsuario);
         etPassword = findViewById(R.id.etPassword);

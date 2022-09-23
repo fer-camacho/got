@@ -7,6 +7,10 @@
     tools:context=".CrearCuentaActivity"
     android:orientation="vertical">
 
+    <include
+        android:id="@+id/crear_toolbar"
+        layout="@layout/got_toolbar" />
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

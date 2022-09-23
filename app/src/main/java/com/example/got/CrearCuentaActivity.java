@@ -1,10 +1,13 @@
 package com.example.got;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -13,6 +16,7 @@ import android.widget.Toast;
 
 public class CrearCuentaActivity extends AppCompatActivity {
 
+    Toolbar crear_toolbar;
     EditText etUsuario, etPassword, etPassword2;
     CheckBox chAceptarTerminos;
     Button btnIniciarSesion;
@@ -21,6 +25,10 @@ public class CrearCuentaActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_crear_cuenta);
+
+        crear_toolbar = findViewById(R.id.crear_toolbar);
+        setSupportActionBar(crear_toolbar);
+        getSupportActionBar().setTitle("Game of Thrones");
 
         etUsuario = findViewById(R.id.etUsuario);
         etPassword = findViewById(R.id.etPassword);
@@ -72,5 +80,20 @@ public class CrearCuentaActivity extends AppCompatActivity {
 
             }
         });
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu){
+        getMenuInflater().inflate(R.menu.menu_crear, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    public boolean onOptionsItemSelected(MenuItem item){
+        if (item.getItemId() == R.id.item_volver){
+            Intent intent = new Intent(CrearCuentaActivity.this, LoginActivity.class);
+            startActivity(intent);
+            finish();
+        }
+        return super.onOptionsItemSelected(item);
     }
 }
